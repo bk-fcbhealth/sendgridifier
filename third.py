@@ -13,13 +13,16 @@ import re
 shutil.copy('index.html', "sendgrid-index.html")
 
 
+dic = imglist.images
+
 with open('sendgrid-index.html', 'r+') as f:
     text = f.read()
     print(text)
-    text = re.sub('head', 'HEAD', text)
-    f.seek(0)
-    f.write(text)
-    f.truncate()
+    for key, value in dic.items():
+        text = re.sub(key, value, text)
+        f.seek(0)
+        f.write(text)
+        f.truncate()
 
 
 
