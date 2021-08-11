@@ -17,18 +17,19 @@ originalFile = open("index.html", "rt")
 sendgridFile = open("sendgrid-index.html", "wt")
 
 
+
+# def replace_all(
+
+
 # Loop through Image List to get all image locations
 imgNames = imglist.images.keys()
-for x in imgNames:
-    print(x)
-    #for each line in the input file
-    print("about to try and replace " + x + " with " + imglist.images[x])
-    for line in originalFile:
-        #read replace the string and write to output file
-        sendgridFile.write(line.replace(x, imglist.images[x]))
-    
-    print("done parsing for specific name: " + imglist.images[x])
 
+dic = imglist.images
+for line in originalFile:
+    for key, value in dic.items():
+        newLine = line.replace(key, value)
+        sendgridFile.write(line.replace(line, newLine))
+    
 
 # close input and output files
 originalFile.close()
