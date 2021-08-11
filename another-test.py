@@ -25,10 +25,17 @@ sendgridFile = open("sendgrid-index.html", "wt")
 imgNames = imglist.images.keys()
 
 dic = imglist.images
+# print(dic)
 for line in originalFile:
+    # print(line)
     for key, value in dic.items():
+        # print(dic.items())
+        # print(key, value)
+        # print(line)
+        print(key)
         newLine = line.replace(key, value)
-        sendgridFile.write(line.replace(line, newLine))
+        # print("newLine: " + newLine)
+        sendgridFile.write(newLine)
     
 
 # close input and output files
