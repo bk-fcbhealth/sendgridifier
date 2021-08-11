@@ -4,6 +4,8 @@ import imgList
 import shutil
 # Regex for replacement
 import re
+# For deleting unneeded files after running completes
+import os
 
 
 
@@ -21,5 +23,9 @@ with open('sendgrid-index.html', 'r+') as f:
         f.seek(0)
         f.write(text)
         f.truncate()
+
+
+if os.path.exists("imgList.pyc"):
+  os.remove("imgList.pyc")
 
 print("finished")
